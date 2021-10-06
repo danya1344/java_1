@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="by.sqa.sandbox.PointDataTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-06T13:22:22" hostname="DESKTOP-ETMDK34" time="0.012">
+  <properties/>
+  <testcase name="testDistance" classname="by.sqa.sandbox.PointDataTests" time="0.012"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
