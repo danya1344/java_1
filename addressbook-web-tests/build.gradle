@@ -1,0 +1,15 @@
+apply plugin: 'java'
+
+
+repositories {
+    mavenCentral()
+}
+test {
+   useTestNG()
+}
+
+dependencies {
+implementation 'org.jetbrains:annotations:20.1.0'
+    testImplementation group: 'org.testng', name: 'testng', version: '6.14.3'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+}
