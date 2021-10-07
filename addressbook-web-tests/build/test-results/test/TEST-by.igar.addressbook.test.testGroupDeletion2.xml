@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="by.igar.addressbook.test.testGroupDeletion2" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-07T18:46:02" hostname="DESKTOP-ETMDK34" time="14.146">
+  <properties/>
+  <testcase name="testGroupCreationTests" classname="by.igar.addressbook.test.testGroupDeletion2" time="14.146"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[1633632356618	geckodriver	INFO	Listening on 127.0.0.1:41624
+1633632356958	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\rust_mozprofilezp4VoP"
+1633632357694	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Lenovo\\AppData\\Local\\Temp\\rust_mozprofilezp4VoP\\search.json.mozlz4", (void 0)))
+1633632361747	Marionette	INFO	Listening on port 52681
+1633632361821	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+окт. 07, 2021 9:46:01 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+1633632376963	Marionette	INFO	Stopped listening on port 52681
+JavaScript error: resource://gre/modules/UrlClassifierListManager.jsm, line 691: TypeError: this.tablesData[table] is undefined
+JavaScript error: resource:///modules/Interactions.jsm, line 201: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+[Parent 15900, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+console.log: "RemoteSettingsWorker error: Error: Can't import when we've started shutting down."
+]]></system-err>
+</testsuite>
