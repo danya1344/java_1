@@ -17,7 +17,7 @@ public class GroupCreationTests {
 
   @BeforeClass(alwaysRun = true)
   public void setUp() {
-    System.setProperty("driver.gecko.driver","C:\\Users\\Lenovo\\java_1\\addressbook-web-tests\\geckodriver-v0.30.0-win32geckodriver.exe");
+    System.setProperty("webdriver.gecko.driver", "C:\\WebDrivers\\geckodriver.exe");
     driver = new FirefoxDriver();
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
