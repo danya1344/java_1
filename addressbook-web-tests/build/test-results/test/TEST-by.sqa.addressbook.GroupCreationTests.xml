@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="by.sqa.addressbook.GroupCreationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-07T07:13:44" hostname="DESKTOP-ETMDK34" time="2.956">
+<testsuite name="by.sqa.addressbook.GroupCreationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-07T07:26:18" hostname="DESKTOP-ETMDK34" time="3.037">
   <properties/>
-  <testcase name="testGroupCreationTests" classname="by.sqa.addressbook.GroupCreationTests" time="2.956"/>
+  <testcase name="testGroupCreation" classname="by.sqa.addressbook.GroupCreationTests" time="3.037"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[1633590817442	geckodriver	INFO	Listening on 127.0.0.1:4661
-1633590817838	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\rust_mozprofileGmbcAF"
-1633590819004	Marionette	INFO	Marionette enabled
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Lenovo\\AppData\\Local\\Temp\\rust_mozprofileGmbcAF\\search.json.mozlz4", (void 0)))
-1633590824100	Marionette	INFO	Listening on port 51847
-1633590824230	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-окт. 07, 2021 10:13:44 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+  <system-err><![CDATA[1633591571089	geckodriver	INFO	Listening on 127.0.0.1:37095
+1633591571501	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\rust_mozprofile9QnxY2"
+1633591572608	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Lenovo\\AppData\\Local\\Temp\\rust_mozprofile9QnxY2\\search.json.mozlz4", (void 0)))
+1633591578248	Marionette	INFO	Listening on port 51962
+1633591578570	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+окт. 07, 2021 10:26:18 AM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
+1633591581997	Marionette	INFO	Stopped listening on port 51962
+JavaScript error: resource:///modules/Interactions.jsm, line 201: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
 ]]></system-err>
 </testsuite>
