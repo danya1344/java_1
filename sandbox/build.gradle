@@ -13,3 +13,5 @@ dependencies {
 implementation 'org.jetbrains:annotations:20.1.0'
     testImplementation group: 'org.testng', name: 'testng', version: '6.14.3'
 }
+sourceCompatibility = JavaVersion.VERSION_16
+targetCompatibility = JavaVersion.VERSION_16
