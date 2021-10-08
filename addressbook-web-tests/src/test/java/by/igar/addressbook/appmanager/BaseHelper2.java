@@ -3,6 +3,8 @@ package by.igar.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import static java.awt.SystemColor.text;
+
 public class BaseHelper2 {
     protected WebDriver wd;
 
@@ -11,14 +13,30 @@ public class BaseHelper2 {
     }
 
     protected void type(String address2, String phone2, String notes) {
-        wd.findElement(By.name(address2)).click();
-        wd.findElement(By.name(phone2)).click();
-        wd.findElement(By.name(notes)).click();
+        String existingText = wd.findElement(By.name(address2)).getAttribute("value");
+        if (!text.equals(existingText)) {
+            wd.findElement(By.name(address2)).click();
+            wd.findElement(By.name(phone2)).click();
+            wd.findElement(By.name(notes)).click();
+        }
     }
 
-    private void extrac(String firstname, String danil) {
+    protected void setWd(String name, String daniil) {
+        String firstname = null;
         wd.findElement(By.name(firstname)).click();
         wd.findElement(By.name(firstname)).clear();
-        wd.findElement(By.name(firstname)).sendKeys(danil);
+        wd.findElement(By.name(firstname)).sendKeys(daniil);
+    }
+
+    public void returnToGroupPage(String group_page) {
+
+    }
+
+    public void initGroups(String groups) {
+
+    }
+
+    public void deleteGroups(By delete) {
+
     }
 }

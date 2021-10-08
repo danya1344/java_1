@@ -13,8 +13,7 @@ public class ContactHelper extends BaseHelper {
         type(By.name(pass), secret);
         wd.findElement(xpath).click();
     }
-
-
+    
     private void type(By name, String admin) {
 
     }

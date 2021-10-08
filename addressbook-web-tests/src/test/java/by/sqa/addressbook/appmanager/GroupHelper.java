@@ -36,4 +36,15 @@ public class GroupHelper extends BaseHelper {
     public void initGroups(String groups) {
         wd.findElement(By.linkText(groups)).click();
     }
+
+    public void initGroupsMod() {
+        click(By.name("edit"));
+    }
+
+    private void click(By edit) {
+    }
+
+    public void submitGroupMod() {
+        click(By.name("updata"));
+    }
 }

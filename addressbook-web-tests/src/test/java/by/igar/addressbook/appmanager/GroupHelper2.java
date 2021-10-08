@@ -1,5 +1,6 @@
 package by.igar.addressbook.appmanager;
 
+import by.sqa.addressbook.model.GroupData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -13,7 +14,7 @@ public class GroupHelper2 extends BaseHelper2 {
         wd.findElement(By.name(submit)).click();
     }
 
-    public void fillGroupForm() {
+    public void fillGroupForm(GroupData test1) {
         initGroupName("firstname", "middlename", "lastname", "nickname");
         initGroupHeader("title", "company", "address", "home");
         initGroupFooter();
@@ -64,4 +65,14 @@ public class GroupHelper2 extends BaseHelper2 {
     private void types(String firstname, String s) {
     }
 
+    public void initGroupsMod2() {
+        click(By.name("edit"));
+    }
+
+    private void click(By edit) {
+    }
+
+    public void submitGroupMod2() {
+        click(By.name("updata"));
+    }
 }

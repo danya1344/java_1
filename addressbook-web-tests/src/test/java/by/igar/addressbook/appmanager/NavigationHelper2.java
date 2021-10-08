@@ -28,4 +28,7 @@ public class NavigationHelper2 extends BaseHelper2 {
             return false;
         }
     }
+
+    public void gotoHomePage() {
+    }
 }

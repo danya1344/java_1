@@ -18,4 +18,7 @@ public class NavigationHelper extends BaseHelper {
             return false;
         }
     }
+
+    public void gotoHomePage() {
+    }
 }
