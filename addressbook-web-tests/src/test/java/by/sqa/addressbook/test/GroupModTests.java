@@ -10,6 +10,9 @@ public class GroupModTests extends TestBase{
     public void testGroupMod() {
         app.getGroupHelper().initGroups("GROUPS");
         app.getGroupHelper().deleteGroups(By.name("delete"));
+        if (app.getGroupHelper().isThereAGroup()) {
+            app.getGroupHelper().createGroup(new GroupData("test1", null, null));
+        }
         app.getGroupHelper().initGroupsMod();
         app.getGroupHelper().fillGroupForm(new GroupData("test1", null, null));
         app.getGroupHelper().submitGroupMod();

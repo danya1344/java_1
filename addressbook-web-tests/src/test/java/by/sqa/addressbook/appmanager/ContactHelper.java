@@ -9,11 +9,10 @@ public class ContactHelper extends BaseHelper {
         super(wd);
     }
     public void login(String user, String admin, String pass, String secret, By xpath) {
-        type(By.name(user), admin);
-        type(By.name(pass), secret);
+        type(By.name("user"), admin);
+        type(By.name("pass"), secret);
         wd.findElement(xpath).click();
     }
-    
     private void type(By name, String admin) {
 
     }

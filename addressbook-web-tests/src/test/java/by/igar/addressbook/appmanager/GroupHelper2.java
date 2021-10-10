@@ -75,4 +75,21 @@ public class GroupHelper2 extends BaseHelper2 {
     public void submitGroupMod2() {
         click(By.name("updata"));
     }
+
+    public void createGroup(GroupData group) {
+        fillGroupForm(group);
+        submitGroupCreation("submit");
+        initLogout(By.linkText("LOGOUT"));
+    }
+
+    private void initLogout(By logout) {
+    }
+
+    public boolean isThereAGroup() {
+        return isElementPresent(By.name("selected[]"));
+    }
+
+    private boolean isElementPresent(By name) {
+        return false;
+    }
 }
