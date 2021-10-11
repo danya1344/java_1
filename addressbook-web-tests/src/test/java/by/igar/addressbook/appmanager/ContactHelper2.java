@@ -1,5 +1,6 @@
 package by.igar.addressbook.appmanager;
 
+import by.igar.addressbook.model.ContactData2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -8,14 +9,16 @@ public class ContactHelper2 extends BaseHelper2 {
     public ContactHelper2(WebDriver wd) {
         super(wd);
     }
-    public void login(String username, String passsword) {
-        type(By.name("user"), username);
-        type(By.name("pass"), passsword);
-        click(By.xpath("//input[@value='LOGIN']"));
+
+    public void initContactCreation() {
+        click(By.linkText("add new"));
     }
-    private void click(By xpath) {
+
+    public void fillContactForm(ContactData2) {
+        type(By.name("firstname")), contactData.getFirstname());
+        type(By.name("lastname")), contactData.getLastname());
     }
-    private void type(By user, String username) {
-    }
+    public void sumbitContactCreation() { click(By.name("sumbit")); }
+    
 }
 

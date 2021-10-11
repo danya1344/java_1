@@ -9,14 +9,14 @@ public class TestBase2 {
 
     protected final ApplicationManager2 app2 = new ApplicationManager2(BrowserType.FIREFOX);
 
-    @BeforeMethod(alwaysRun = true)
-    public void setUp() {
+    @BeforeMethod
+    public void seUp() throws Exception {
         app2.init();
     }
 
-    @AfterMethod(alwaysRun = true)
+    @AfterMethod
     public void tearDown() {
         app2.stop();
     }
-
 }
+

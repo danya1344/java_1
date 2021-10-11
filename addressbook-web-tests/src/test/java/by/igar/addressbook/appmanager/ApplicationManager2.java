@@ -1,6 +1,5 @@
 package by.igar.addressbook.appmanager;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -12,12 +11,12 @@ public class ApplicationManager2 {
 
     WebDriver wd;
 
-    private ContactHelper2 contactHelper2;
     private NavigationHelper2 navigationHelper2;
     private GroupHelper2 groupHelper2;
+    private ContactHelper2 contactHelper2;
     private String browser;
 
-    public ApplicationManager2(String browser) {
+    public ApplicationManager2( String browser) {
         this.browser = browser;
     }
 
@@ -29,18 +28,13 @@ public class ApplicationManager2 {
         } else if (browser.equals(BrowserType.CHROME)) {
             wd = new ChromeDriver();
         }
-
         wd = new FirefoxDriver();
-        wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        wd.get("http://localhost/addressbook/edit.php");
+        wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        wd.get("http://localhost/addressbook/group.php");
         groupHelper2 = new GroupHelper2(wd);
         navigationHelper2 = new NavigationHelper2(wd);
         contactHelper2 = new ContactHelper2(wd);
         contactHelper2.login("admin", "secret");
-    }
-
-    public void initLogout(By logout) {
-        wd.findElement(logout).click();
     }
 
     public void stop() {
@@ -55,3 +49,5 @@ public class ApplicationManager2 {
         return navigationHelper2;
     }
 }
+
+
