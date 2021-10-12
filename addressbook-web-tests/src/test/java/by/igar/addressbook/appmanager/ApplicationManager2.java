@@ -12,7 +12,7 @@ public class ApplicationManager2 {
     WebDriver wd;
 
     private NavigationHelper2 navigationHelper2;
-    private GroupHelper2 groupHelper2;
+    private AddHelper groupHelper2;
     private ContactHelper2 contactHelper2;
     private String browser;
 
@@ -31,7 +31,7 @@ public class ApplicationManager2 {
         wd = new FirefoxDriver();
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/group.php");
-        groupHelper2 = new GroupHelper2(wd);
+        groupHelper2 = new AddHelper(wd);
         navigationHelper2 = new NavigationHelper2(wd);
         contactHelper2 = new ContactHelper2(wd);
         contactHelper2.login("admin", "secret");
@@ -41,7 +41,7 @@ public class ApplicationManager2 {
         wd.quit();
     }
 
-    public GroupHelper2 getGroupHelper2() {
+    public AddHelper getAddHelper() {
         return groupHelper2;
     }
 

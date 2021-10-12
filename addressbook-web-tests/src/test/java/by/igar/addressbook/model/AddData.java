@@ -1,11 +1,11 @@
 package by.igar.addressbook.model;
 
-public class GroupData2 {
+public class AddData {
     private final String name;
     private final String header;
     private final String footer;
 
-    public GroupData2(String name, String headar, String footer) {
+    public AddData(String name, String headar, String footer) {
         this.name = name;
         this.header = headar;
         this.footer = footer;

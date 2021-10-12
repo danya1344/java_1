@@ -9,7 +9,8 @@ public class NavigationHelper2 extends BaseHelper2  {
         super(wd);
     }
 
-    public void gotoGroupPage() {
-        click(By.linkText("groups"));
+    public void gotoHomePage() {
+
+        click(By.name("ADD_NEW"));
     }
 }
