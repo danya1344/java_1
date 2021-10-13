@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="by.egar.addressbook.test.ContactModTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-13T06:47:11" hostname="DESKTOP-ETMDK34" time="1.461">
+<testsuite name="by.egar.addressbook.test.ContactModTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-13T07:31:52" hostname="DESKTOP-ETMDK34" time="5.167">
   <properties/>
-  <testcase name="testContactMod" classname="by.egar.addressbook.test.ContactModTests" time="1.461"/>
+  <testcase name="testContactMod" classname="by.egar.addressbook.test.ContactModTests" time="5.167"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[Starting ChromeDriver 94.0.4606.61 (418b78f5838ed0b1c69bb4e51ea0252171854915-refs/branch-heads/4606@{#1204}) on port 46613
+  <system-err><![CDATA[Starting ChromeDriver 94.0.4606.61 (418b78f5838ed0b1c69bb4e51ea0252171854915-refs/branch-heads/4606@{#1204}) on port 3336
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
-окт. 13, 2021 9:47:09 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+окт. 13, 2021 10:31:50 AM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
 ]]></system-err>
 </testsuite>
