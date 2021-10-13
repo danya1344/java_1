@@ -12,6 +12,8 @@ import java.util.List;
 
 public class ContactHelpers extends HelpersBase {
 
+    private int index;
+
     public ContactHelpers(WebDriver wd) {
         super(wd);
     }
@@ -40,7 +42,7 @@ public class ContactHelpers extends HelpersBase {
     }
 
     public void selectContact(int index) {
-        wd.findElements(By.name("selected[]")).get(index).click();
+        click(By.name("selected[]"));
     }
 
     public void initContactMod() {
@@ -77,7 +79,8 @@ public class ContactHelpers extends HelpersBase {
         List<WebElement> elements = wd.findElements(By.cssSelector("td.center"));
         for (WebElement element : elements) {
             String name = element.getText();
-            ContactDatas central = new ContactDatas("daniil", "astapenko", "daniil.astapenko@gmail.ru", "test3");
+            String id = element.findElement(By.tagName("input")).getAttribute("value");
+            ContactDatas central = new ContactDatas(id, name, null, null, null);
             contact.add(central);
 
         }
