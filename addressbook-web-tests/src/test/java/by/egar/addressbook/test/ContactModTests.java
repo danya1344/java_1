@@ -9,7 +9,7 @@ public class ContactModTests extends TestsBase {
         //app.getNavigationHelpers().gotoAdd_NewPage();
         app.getContactHelpers().selectContact();
         app.getContactHelpers().initContactMod();
-        app.getContactHelpers().fillContactForm(new ContactData("daniil", "astap", "daniil@qmail.ru"));
+        app.getContactHelpers().fillContactForm(new ContactData("daniil", null, null));
         app.getContactHelpers().submitContactMod();
         app.getContactHelpers().returnToHomePage();
     }

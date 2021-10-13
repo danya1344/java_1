@@ -23,9 +23,9 @@ public class ApplicationContactManager {
     public void init() {
         System.setProperty("webdriver.gecko.driver", "C:\\WebDrivers\\geckodriver.exe");
         System.setProperty("webdriver.chrome.driver", "C:\\WebDrivers\\chromedriver.exe");
-        if (browser == BrowserType.FIREFOX) {
+        if (browser.equals( BrowserType.FIREFOX)) {
             wd = new FirefoxDriver();
-        } else if (browser == BrowserType.CHROME) {
+        } else if (browser.equals(BrowserType.CHROME)) {
             wd = new ChromeDriver();
         }
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
