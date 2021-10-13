@@ -3,8 +3,12 @@ package by.egar.addressbook.appmanager;
 import by.egar.addressbook.model.ContactDatas;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelpers extends HelpersBase {
 
@@ -66,5 +70,17 @@ public class ContactHelpers extends HelpersBase {
 
     public int getContactCount() {
         return wd.findElements(By.name("selected[]")).size();
+    }
+
+    public List<ContactDatas> getContactLint() {
+        List<ContactDatas> contact = new ArrayList<ContactDatas>();
+        List<WebElement> elements = wd.findElements(By.cssSelector("td.center"));
+        for (WebElement element : elements) {
+            String name = element.getText();
+            ContactDatas central = new ContactDatas("daniil", "astapenko", "daniil.astapenko@gmail.ru", "test3");
+            contact.add(central);
+
+        }
+        return contact;
     }
 }
