@@ -35,8 +35,8 @@ public class ContactHelpers extends HelpersBase {
         click(By.xpath("Delete 1 addresses?: "));
     }
 
-    public void selectContact() {
-        click(By.name("selected[]"));
+    public void selectContact(int index) {
+        wd.findElements(By.name("selected[]")).get(index).click();
     }
 
     public void initContactMod() {

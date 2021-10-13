@@ -12,12 +12,12 @@ public class ContactModTests extends TestsBase {
         if (! app.getContactHelpers().isThereContact()) {
             app.getContactHelpers().createContact(new ContactDatas("daniil", "astap", "daniil@qmail.ru", "test1"), true);
         }
-        app.getContactHelpers().selectContact();
+        app.getContactHelpers().selectContact(before - 1);
         app.getContactHelpers().initContactMod();
         app.getContactHelpers().fillContactForm(new ContactDatas("daniil", null, null, null), false);
         app.getContactHelpers().submitContactMod();
         app.getNavigationHelpers().returnToHomePage();
         int after = app.getContactHelpers().getContactCount();
-        Assert.assertEquals(after, before );
+        Assert.assertEquals(after, before - 1 );
     }
 }
