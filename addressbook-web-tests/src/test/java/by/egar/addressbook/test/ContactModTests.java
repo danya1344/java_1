@@ -11,6 +11,6 @@ public class ContactModTests extends TestsBase {
         app.getContactHelpers().initContactMod();
         app.getContactHelpers().fillContactForm(new ContactDatas("daniil", null, null, null), false);
         app.getContactHelpers().submitContactMod();
-        app.getContactHelpers().returnToHomePage();
+        app.getNavigationHelpers().returnToHomePage();
     }
 }
