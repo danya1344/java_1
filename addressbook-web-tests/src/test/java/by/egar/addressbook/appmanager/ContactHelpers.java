@@ -13,7 +13,6 @@ public class ContactHelpers extends HelpersBase {
     }
 
 
-
     public void submitContactCreation() {
         click(By.xpath("//div[@id='content']/form/input[21]"));
     }
@@ -46,5 +45,22 @@ public class ContactHelpers extends HelpersBase {
 
     public void submitContactMod() {
         click(By.name("update"));
+    }
+
+
+    public void createContact(ContactDatas contact, boolean b) {
+        fillContactForm(contact);
+        submitContactCreation();
+        returnToHomePage();
+    }
+
+    private void fillContactForm(ContactDatas contact) {
+    }
+
+    private void returnToHomePage() {
+    }
+
+    public boolean isThereContact() {
+        return isElementPresent(By.name("selected[]"));
     }
 }
