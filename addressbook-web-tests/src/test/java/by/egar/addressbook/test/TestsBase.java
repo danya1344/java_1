@@ -7,7 +7,7 @@ import org.testng.annotations.BeforeMethod;
 
 public class TestsBase {
 
-    protected final ApplicationContactManager app = new ApplicationContactManager(BrowserType.CHROME);
+    protected final ApplicationContactManager app = new ApplicationContactManager(BrowserType.FIREFOX);
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() throws Exception {

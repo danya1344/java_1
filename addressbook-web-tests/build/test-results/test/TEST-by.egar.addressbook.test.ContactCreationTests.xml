@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="by.egar.addressbook.test.ContactCreationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-13T10:03:13" hostname="DESKTOP-ETMDK34" time="3.74">
+  <properties/>
+  <testcase name="testContactCreation" classname="by.egar.addressbook.test.ContactCreationTests" time="3.74"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[1634119377640	geckodriver	INFO	Listening on 127.0.0.1:41748
+1634119378038	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\rust_mozprofileArGFz1"
+1634119380056	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Lenovo\\AppData\\Local\\Temp\\rust_mozprofileArGFz1\\search.json.mozlz4", (void 0)))
+1634119388221	Marionette	INFO	Listening on port 61720
+1634119388405	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+окт. 13, 2021 1:03:08 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+1634119396865	Marionette	INFO	Stopped listening on port 61720
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: resource:///modules/Interactions.jsm, line 201: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+]]></system-err>
+</testsuite>
