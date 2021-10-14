@@ -24,12 +24,12 @@ public class ContactHelpers extends HelpersBase {
     }
 
     public void fillContactForm(ContactDatas contactDatas, boolean creation) {
-        type(By.name("firstname"), contactDatas.firstname());
-        type(By.name("lastname"), contactDatas.lastname());
-        type(By.name("email"), contactDatas.email());
+        type(By.name("firstname"), contactDatas.getFirstname());
+        type(By.name("lastname"), contactDatas.getLastname());
+        type(By.name("email"), contactDatas.getEmail());
 
         if (creation) {
-            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactDatas.group());
+            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactDatas.getGroup());
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
@@ -75,11 +75,11 @@ public class ContactHelpers extends HelpersBase {
     }
 
     public List<ContactDatas> getContactLint() {
-        List<ContactDatas> contact = new ArrayList<ContactDatas>();
+        List<ContactDatas> contact = new ArrayList<>();
         List<WebElement> elements = wd.findElements(By.cssSelector("td.center"));
         for (WebElement element : elements) {
             String name = element.getText();
-            String id = element.findElement(By.tagName("input")).getAttribute("value");
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
             ContactDatas central = new ContactDatas(id, name, null, null, null);
             contact.add(central);
 
