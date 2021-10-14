@@ -55,9 +55,13 @@ public class ContactHelpers extends HelpersBase {
 
 
     public void createContact(ContactDatas contact, boolean b) {
+        gotoAdd_NewPage();
         fillContactForm(contact);
         submitContactCreation();
         returnToHomePage();
+    }
+
+    private void gotoAdd_NewPage() {
     }
 
     private void fillContactForm(ContactDatas contact) {

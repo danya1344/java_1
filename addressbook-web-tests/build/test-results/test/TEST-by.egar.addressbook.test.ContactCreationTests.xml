@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="by.egar.addressbook.test.ContactCreationTests" tests="1" skipped="0" failures="1" errors="0" timestamp="2021-10-14T06:22:25" hostname="DESKTOP-ETMDK34" time="0.631">
+<testsuite name="by.egar.addressbook.test.ContactCreationTests" tests="1" skipped="0" failures="1" errors="0" timestamp="2021-10-14T07:26:06" hostname="DESKTOP-ETMDK34" time="0.682">
   <properties/>
-  <testcase name="testContactCreation" classname="by.egar.addressbook.test.ContactCreationTests" time="0.631">
+  <testcase name="testContactCreation" classname="by.egar.addressbook.test.ContactCreationTests" time="0.682">
     <failure message="java.lang.AssertionError: expected [1] but found [0]" type="java.lang.AssertionError">java.lang.AssertionError: expected [1] but found [0]
 	at org.testng.Assert.fail(Assert.java:96)
 	at org.testng.Assert.failNotEquals(Assert.java:776)
@@ -56,15 +56,16 @@
 </failure>
   </testcase>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[1634192533959	geckodriver	INFO	Listening on 127.0.0.1:25512
-1634192534479	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\rust_mozprofilebyaG4u"
-1634192535800	Marionette	INFO	Marionette enabled
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Lenovo\\AppData\\Local\\Temp\\rust_mozprofilebyaG4u\\search.json.mozlz4", (void 0)))
-1634192543192	Marionette	INFO	Listening on port 49330
-1634192543332	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-окт. 14, 2021 9:22:23 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+  <system-err><![CDATA[1634196355948	geckodriver	INFO	Listening on 127.0.0.1:33122
+1634196356376	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\rust_mozprofile1CzuFI"
+1634196357675	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Lenovo\\AppData\\Local\\Temp\\rust_mozprofile1CzuFI\\search.json.mozlz4", (void 0)))
+1634196364062	Marionette	INFO	Listening on port 59088
+1634196364378	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+окт. 14, 2021 10:26:04 AM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
-1634192545814	Marionette	INFO	Stopped listening on port 49330
+1634196366856	Marionette	INFO	Stopped listening on port 59088
+[Parent 13116, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
 JavaScript error: resource:///modules/Interactions.jsm, line 201: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
 ]]></system-err>
 </testsuite>

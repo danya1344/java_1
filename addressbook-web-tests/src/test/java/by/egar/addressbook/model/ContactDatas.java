@@ -10,7 +10,7 @@ public class ContactDatas {
     private final String group;
 
     public ContactDatas(String firstname, String lastname, String email, String group) {
-        this.id = 0;
+        this.id = Integer.MAX_VALUE;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -59,12 +59,12 @@ public class ContactDatas {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ContactDatas that = (ContactDatas) o;
-        return id == that.id && Objects.equals(firstname, that.firstname);
+        return Objects.equals(firstname, that.firstname);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstname);
+        return Objects.hash(firstname);
     }
 
 }

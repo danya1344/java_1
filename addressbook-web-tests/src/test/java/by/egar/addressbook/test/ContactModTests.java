@@ -4,7 +4,7 @@ import by.egar.addressbook.model.ContactDatas;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.HashSet;
+import java.util.Comparator;
 import java.util.List;
 
 public class ContactModTests extends TestsBase {
@@ -22,10 +22,13 @@ public class ContactModTests extends TestsBase {
         app.getContactHelpers().submitContactMod();
         app.getNavigationHelpers().returnToHomePage();
         List<ContactDatas> after = app.getContactHelpers().getContactLint();
-        Assert.assertEquals(after.size(), before.size() - 1 );
+        Assert.assertEquals(after.size(), before.size());
 
         before.remove(before.size() - 1);
         before.add(contact);
-        Assert.assertEquals(new HashSet<Object>(before),new HashSet<Object>(after));
+        Comparator<? super ContactDatas> byId = (c1, c2) -> Integer.compare(c1.getId(), c2.getId());
+        before.sort(byId);
+        after.sort(byId);
+        Assert.assertEquals(before,after);
     }
 }
