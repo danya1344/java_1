@@ -1,31 +1,37 @@
 package by.sqa.addressbook.test;
 
+import by.egar.addressbook.model.Contacts;
 import by.sqa.addressbook.model.GroupData;
+import by.sqa.addressbook.model.Groups;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.testng.Assert.assertEquals;
+
+;
 
 public class GroupModTests extends TestBase{
 
-    @Test
-    public void testGroupMod() {
-        app.getNavigationHelper().gotoGroupPage();
-       // if (! app.getGroupHelper().isThereAGroup()) {
-            app.getGroupHelper().createGroup(new GroupData("test1", null, null));
+    @BeforeMethod
+        private void ensurePrecondition() {
+            app.getGoTo().groupPage();
+            if (app.group().all().size() == 0) {
+                app.group().create(new GroupData().withName("test2"));
+            }
         }
-       // List<GroupData> before = app.getGroupHelper().getGroupLict();
-       // app.getGroupHelper().selectGroup(before.size() - 1);
-       // app.getGroupHelper().initGroupsMod();
-       // GroupData group = new GroupData(before.get(before.size() - 1).getId(), "test1", "test2", "test3");
-       // app.getGroupHelper().fillGroupForm(group);
-       // app.getGroupHelper().submitGroupMod();
-       // app.getGroupHelper().returnToGroupPage();
-       // List<GroupData> after = app.getGroupHelper().getGroupLict();
-      //  Assert.assertEquals(after.size(), before.size());
 
-      //  before.remove(before.size() - 1);
-       // before.add(group);
-       // Comparable<? super GroupData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
-      //  before.sort(byId);
-      //  after.sort(byId);
-      //  Assert.assertEquals(before, after);
+        @Test
+        public void testContactMod() {
+            Groups before = app.group().all();
+            GroupData modifiedGroup = before.iterator().next();
+            GroupData group = new GroupData()
+                    .withId(modifiedGroup.getId()).withName("test1").withHeader("test2").withFooter("test3");
+            app.group().modify(group);
+            Contacts after = app.group().all();
+            assertEquals(after.size(), before.size());
+            assertThat(after, equalTo(before.without(modifiedGroups).withAdded(group)));
+        }
+    }
 
-}

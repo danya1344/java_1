@@ -1,12 +1,12 @@
 package by.sqa.addressbook.appmanager;
 
-import by.egar.addressbook.model.ContactDatas;
 import by.sqa.addressbook.model.GroupData;
+import by.sqa.addressbook.model.Groups;
+import jdk.incubator.foreign.MemoryLayout;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class GroupHelper extends BaseHelper {
@@ -34,12 +34,8 @@ public class GroupHelper extends BaseHelper {
         click(By.name("new"));
     }
 
-    public void deleteGroups() {
-        click(By.name("delete"));
-    }
-
-    public void selectGroup(int index) {
-        wd.findElements(By.name("select[]")).get(index).click();
+    public void selectGroupById(int id) {
+        wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
     }
 
     public void initGroupsMod() {
@@ -50,39 +46,58 @@ public class GroupHelper extends BaseHelper {
         click(By.name("update"));
     }
 
-    public void createGroup(GroupData group) {
+    public void create(GroupData group) {
         initGroupCreation();
         fillGroupForm(group);
         submitGroupCreation();
         returnToGroupPage();
     }
 
-    private void modifyContact(int index, ContactDatas group) {
-        selectGroup(index);
+    private void modify(GroupData group) {
+        selectGroupById(group.getId());
         initGroupsMod();
-        //fillGroupForm(group);
+        fillGroupForm(group);
         submitGroupMod();
         returnToGroupPage();
     }
 
-    //public boolean isThereAGroup() { return isElementPresent(By.name("selected[]")); }
+    public void delete(GroupData group) {
+        selectGroupById(group.getId());
+        deleteSelectedGroup();
+        returnToGroupPage();
+    }
 
+    private void gotoGroupPage() {
+    }
+
+    private void fillGroupForm(GroupData group) {
+    }
+
+    private void returnToGroupPage() {
+    }
+
+    public boolean isThereGroup() {
+        return isElementPresent(By.name("selected[]"));
+    }
+    
     public int getGroupCount() {
         return wd.findElements(By.name("selected[]")).size();
     }
 
+    public void create(GroupData group) {
+    }
 
-    public List<ContactDatas> getContactLint() {
-        List<ContactDatas> group = new ArrayList<>();
+    public Groups all() {
+        Groups groups = new Groups();
         List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
         for (WebElement element : elements) {
             String name = element.getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            //GroupData group = new GroupData(id, name, null, null);
-            //group.add(group);
+            groups.add(new GroupData().withId(id).withName(name));
 
         }
-        return group;
+        return groups;
     }
+    
 }
 
