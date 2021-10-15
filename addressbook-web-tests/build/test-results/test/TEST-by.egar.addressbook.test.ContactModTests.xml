@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="by.egar.addressbook.test.ContactCreationTests" tests="1" skipped="0" failures="1" errors="0" timestamp="2021-10-15T06:56:56" hostname="DESKTOP-ETMDK34" time="0.762">
+<testsuite name="by.egar.addressbook.test.ContactModTests" tests="1" skipped="0" failures="1" errors="0" timestamp="2021-10-15T06:56:57" hostname="DESKTOP-ETMDK34" time="0.001">
   <properties/>
-  <testcase name="testContactCreation" classname="by.egar.addressbook.test.ContactCreationTests" time="0.762">
-    <failure message="java.lang.AssertionError: expected [1] but found [0]" type="java.lang.AssertionError">java.lang.AssertionError: expected [1] but found [0]
-	at org.testng.Assert.fail(Assert.java:96)
-	at org.testng.Assert.failNotEquals(Assert.java:776)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
-	at org.testng.Assert.assertEquals(Assert.java:118)
-	at org.testng.Assert.assertEquals(Assert.java:652)
-	at org.testng.Assert.assertEquals(Assert.java:662)
-	at by.egar.addressbook.test.ContactCreationTests.testContactCreation(ContactCreationTests.java:19)
+  <testcase name="testContactMod" classname="by.egar.addressbook.test.ContactModTests" time="0.001">
+    <failure message="java.lang.NullPointerException: Cannot invoke &quot;by.egar.addressbook.appmanager.ContactHelpers.isThereContact()&quot; because the return value of &quot;by.egar.addressbook.appmanager.ApplicationContactManager.getContactHelpers()&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;by.egar.addressbook.appmanager.ContactHelpers.isThereContact()&quot; because the return value of &quot;by.egar.addressbook.appmanager.ApplicationContactManager.getContactHelpers()&quot; is null
+	at by.egar.addressbook.test.ContactModTests.testContactMod(ContactModTests.java:14)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

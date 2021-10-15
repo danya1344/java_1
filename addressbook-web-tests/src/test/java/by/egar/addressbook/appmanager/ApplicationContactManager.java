@@ -11,7 +11,7 @@ public class ApplicationContactManager {
 
     WebDriver wd;
 
-    private NavigationHelpers navigationHelpers;
+    private NavigationHelpers goTo;
     private ContactHelpers contactHelpers;
     private SessionHelpers sessionHelpers;
     private String browser;
@@ -31,7 +31,7 @@ public class ApplicationContactManager {
         wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/");
         contactHelpers = new ContactHelpers(wd);
-        navigationHelpers = new NavigationHelpers(wd);
+        goTo = new NavigationHelpers(wd);
         sessionHelpers = new SessionHelpers(wd);
         sessionHelpers.login("admin", "secret");
     }
@@ -40,11 +40,11 @@ public class ApplicationContactManager {
         wd.quit();
     }
 
-    public ContactHelpers getContactHelpers() {
+    public ContactHelpers contact() {
         return contactHelpers;
     }
 
-    public NavigationHelpers getNavigationHelpers() {
-        return navigationHelpers;
+    public NavigationHelpers getGoTo() {
+        return goTo;
     }
 }

@@ -1,8 +1,13 @@
 package by.sqa.addressbook.appmanager;
 
+import by.egar.addressbook.model.ContactDatas;
 import by.sqa.addressbook.model.GroupData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GroupHelper extends BaseHelper {
 
@@ -10,56 +15,74 @@ public class GroupHelper extends BaseHelper {
         super(wd);
     }
 
-    public void returnToGroupPage(String s) {
-        wd.findElement(By.linkText(s)).click();
+    public void returnToGroupPage() {
+        click(By.linkText("group page"));
     }
 
-    public void submitGroupCreation(String submit) {
-        wd.findElement(By.name(submit)).click();
+    public void submitGroupCreation() {
+        click(By.name("submit"));
     }
 
     public void fillGroupForm(GroupData groupData) {
-        type("group_name", By.name("group_name"), groupData.name());
-        type(null, By.name("group_header"), groupData.header());
-        type(null, By.name("group_footer"), groupData.footer());
+        type(By.name("group_name"), groupData.getName());
+        type(By.name("group_header"), groupData.getHeader());
+        type(By.name("group_footer"), groupData.getFooter());
     }
 
 
-    public void initGroupCreation(String s) {
-        wd.findElement(By.name(s)).click();
+    public void initGroupCreation() {
+        click(By.name("new"));
     }
 
-    public void deleteGroups(By delete) {
-        wd.findElement(delete).click();
+    public void deleteGroups() {
+        click(By.name("delete"));
     }
 
-    public void initGroups(String groups) {
-        wd.findElement(By.linkText(groups)).click();
+    public void selectGroup(int index) {
+        wd.findElements(By.name("select[]")).get(index).click();
     }
 
     public void initGroupsMod() {
         click(By.name("edit"));
     }
 
-    private void click(By edit) {
-    }
-
     public void submitGroupMod() {
-        click(By.name("updata"));
+        click(By.name("update"));
     }
 
     public void createGroup(GroupData group) {
-        initGroupCreation("new");
+        initGroupCreation();
         fillGroupForm(group);
-        submitGroupCreation("submit");
-        returnToGroupPage("group page");
+        submitGroupCreation();
+        returnToGroupPage();
     }
 
-    public boolean isThereAGroup() {
-        return isElementPresent(By.name("selected[]"));
+    private void modifyContact(int index, ContactDatas group) {
+        selectGroup(index);
+        initGroupsMod();
+        //fillGroupForm(group);
+        submitGroupMod();
+        returnToGroupPage();
     }
 
-    private boolean isElementPresent(By name) {
-        return false;
+    //public boolean isThereAGroup() { return isElementPresent(By.name("selected[]")); }
+
+    public int getGroupCount() {
+        return wd.findElements(By.name("selected[]")).size();
+    }
+
+
+    public List<ContactDatas> getContactLint() {
+        List<ContactDatas> group = new ArrayList<>();
+        List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
+        for (WebElement element : elements) {
+            String name = element.getText();
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+            //GroupData group = new GroupData(id, name, null, null);
+            //group.add(group);
+
+        }
+        return group;
     }
 }
+

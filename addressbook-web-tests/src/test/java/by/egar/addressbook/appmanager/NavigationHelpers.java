@@ -9,7 +9,7 @@ public class NavigationHelpers extends HelpersBase {
         super(wd);
     }
 
-    public void gotoAdd_NewPage() {
+    public void add_NewPage() {
         if (isElementPresent(By.tagName("h1"))
                 && wd.findElement(By.tagName("h1")).getText().equals("EDIT_ADD_ENTRY")) {
             return;

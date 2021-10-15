@@ -3,35 +3,42 @@ package by.egar.addressbook.model;
 import java.util.Objects;
 
 public class ContactDatas {
-    private int id;
-    private final String firstname;
-    private final String lastname;
-    private final String email;
-    private final String group;
+    private int id = Integer.MAX_VALUE;;
+    private String firstname;
+    private String lastname;
+    private String email;
+    private String group;
 
-    public ContactDatas(String firstname, String lastname, String email, String group) {
-        this.id = Integer.MAX_VALUE;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.group = group;
-    }
-
-    public ContactDatas(int id, String firstname, String lastname, String email, String group) {
-        this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.group = group;
-    }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public ContactDatas withId(int id) {
         this.id = id;
+        return this;
     }
+
+    public ContactDatas withFirstname(String firstname) {
+        this.firstname = firstname;
+        return this;
+    }
+
+    public ContactDatas withLastname(String lastname) {
+        this.lastname = lastname;
+        return this;
+    }
+
+    public ContactDatas withEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public ContactDatas withGroup(String group) {
+        this.group = group;
+        return this;
+    }
+
 
     public String getFirstname() {
         return firstname;

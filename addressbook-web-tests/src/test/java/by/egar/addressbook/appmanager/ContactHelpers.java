@@ -54,10 +54,24 @@ public class ContactHelpers extends HelpersBase {
     }
 
 
-    public void createContact(ContactDatas contact, boolean b) {
+    public void create(ContactDatas contact, boolean b) {
         gotoAdd_NewPage();
         fillContactForm(contact);
         submitContactCreation();
+        returnToHomePage();
+    }
+
+    public void modify(int index, ContactDatas contact) {
+        selectContact(index);
+        initContactMod();
+        fillContactForm(contact, false);
+        submitContactMod();
+        returnToHomePage();
+    }
+
+    public void delete(int index) {
+        selectContact(index);
+        deleteSelectedContact();
         returnToHomePage();
     }
 
@@ -78,16 +92,18 @@ public class ContactHelpers extends HelpersBase {
         return wd.findElements(By.name("selected[]")).size();
     }
 
-    public List<ContactDatas> getContactLint() {
+    public List<ContactDatas> list() {
         List<ContactDatas> contact = new ArrayList<>();
         List<WebElement> elements = wd.findElements(By.cssSelector("td.center"));
         for (WebElement element : elements) {
             String name = element.getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            ContactDatas central = new ContactDatas(id, name, null, null, null);
-            contact.add(central);
+            contact.add(new ContactDatas().withId(id).withFirstname(name));
 
         }
         return contact;
+    }
+
+    public void create(ContactDatas contact) {
     }
 }
