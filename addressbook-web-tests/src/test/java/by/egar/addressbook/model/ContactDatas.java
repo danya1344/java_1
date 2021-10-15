@@ -61,17 +61,17 @@ public class ContactDatas {
                 ", firstname='" + firstname + '\'' +
                 '}';
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ContactDatas that = (ContactDatas) o;
-        return Objects.equals(firstname, that.firstname);
+        return id == that.id && Objects.equals(firstname, that.firstname);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstname);
+        return Objects.hash(id, firstname);
     }
-
 }

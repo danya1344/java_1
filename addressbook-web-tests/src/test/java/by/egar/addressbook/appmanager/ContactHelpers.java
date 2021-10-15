@@ -1,13 +1,13 @@
 package by.egar.addressbook.appmanager;
 
 import by.egar.addressbook.model.ContactDatas;
+import by.egar.addressbook.model.Contacts;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ContactHelpers extends HelpersBase {
@@ -39,10 +39,11 @@ public class ContactHelpers extends HelpersBase {
         click(By.xpath("//input[@value='DELETE']"));
         click(By.name("delete"));
         click(By.xpath("Delete 1 addresses?: "));
+        click(By.name("ok"));
     }
 
-    public void selectContact(int index) {
-        click(By.name("selected[]"));
+    public void selectContactById(int id) {
+        wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
     }
 
     public void initContactMod() {
@@ -61,16 +62,16 @@ public class ContactHelpers extends HelpersBase {
         returnToHomePage();
     }
 
-    public void modify(int index, ContactDatas contact) {
-        selectContact(index);
+    public void modify(ContactDatas contact) {
+        selectContactById(contact.getId());
         initContactMod();
         fillContactForm(contact, false);
         submitContactMod();
         returnToHomePage();
     }
 
-    public void delete(int index) {
-        selectContact(index);
+    public void delete(ContactDatas contact) {
+        selectContactById(contact.getId());
         deleteSelectedContact();
         returnToHomePage();
     }
@@ -92,18 +93,18 @@ public class ContactHelpers extends HelpersBase {
         return wd.findElements(By.name("selected[]")).size();
     }
 
-    public List<ContactDatas> list() {
-        List<ContactDatas> contact = new ArrayList<>();
+    public void create(ContactDatas contact) {
+    }
+
+    public Contacts all() {
+        Contacts contacts = new Contacts();
         List<WebElement> elements = wd.findElements(By.cssSelector("td.center"));
         for (WebElement element : elements) {
             String name = element.getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            contact.add(new ContactDatas().withId(id).withFirstname(name));
+            contacts.add(new ContactDatas().withId(id).withFirstname(name));
 
         }
-        return contact;
-    }
-
-    public void create(ContactDatas contact) {
+        return contacts;
     }
 }
