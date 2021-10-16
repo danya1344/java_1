@@ -1,5 +1,6 @@
 package by.sqa.addressbook.model;
 
+import by.egar.addressbook.model.Contacts;
 import com.google.common.collect.ForwardingSet;
 
 import java.util.HashSet;
@@ -13,7 +14,7 @@ public class Groups extends ForwardingSet<GroupData> {
         this.delegate = new HashSet<GroupData>(groups.delegate);
     }
 
-    public Groups() {
+    public Groups(Contacts contactCache) {
         this.delegate = new HashSet<GroupData>();
     }
 

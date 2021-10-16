@@ -9,21 +9,21 @@ public class GroupData {
     private String footer;
 
 
-    public int getId() {
+    public int withId() {
         return id;
     }
 
-    public GroupData getName(String name) {
+    public GroupData withName(String name) {
         this.name = name;
         return this;
     }
 
-    public GroupData getHeader(String header) {
+    public GroupData withHeader(String header) {
         this.header = header;
         return this;
     }
 
-    public GroupData getFooter(String footer) {
+    public GroupData withFooter(String footer) {
         this.footer = footer;
         return this;
     }
@@ -31,9 +31,11 @@ public class GroupData {
     public String getName() {
         return name;
     }
+
     public String getHeader() {
         return header;
     }
+
     public String getFooter() {
         return footer;
     }
@@ -58,5 +60,4 @@ public class GroupData {
     public int hashCode() {
         return Objects.hash(id, name);
     }
-
 }

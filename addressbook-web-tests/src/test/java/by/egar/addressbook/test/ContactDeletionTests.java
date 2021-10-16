@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.testng.Assert.assertEquals;
 
 public class ContactDeletionTests extends TestsBase {
 
@@ -23,8 +22,8 @@ public class ContactDeletionTests extends TestsBase {
     Contacts before = app.contact().all();
     ContactDatas deletedContact = before.iterator().next();
     app.contact().delete(deletedContact);
+    assertThat(app.contact().count(), equalTo(before.size() - 1));
     Contacts after = app.contact().all();
-    assertEquals(after.size(), before.size() - 1);
     assertThat(after, equalTo(before.without(deletedContact)));
   }
 }

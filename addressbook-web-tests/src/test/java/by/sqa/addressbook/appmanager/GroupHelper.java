@@ -2,7 +2,6 @@ package by.sqa.addressbook.appmanager;
 
 import by.sqa.addressbook.model.GroupData;
 import by.sqa.addressbook.model.Groups;
-import jdk.incubator.foreign.MemoryLayout;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,7 +14,7 @@ public class GroupHelper extends BaseHelper {
         super(wd);
     }
 
-    public void returnToGroupPage() {
+    public void groupPage() {
         click(By.linkText("group page"));
     }
 
@@ -27,6 +26,7 @@ public class GroupHelper extends BaseHelper {
         type(By.name("group_name"), groupData.getName());
         type(By.name("group_header"), groupData.getHeader());
         type(By.name("group_footer"), groupData.getFooter());
+
     }
 
 
@@ -50,20 +50,23 @@ public class GroupHelper extends BaseHelper {
         initGroupCreation();
         fillGroupForm(group);
         submitGroupCreation();
+        groupCache = null;
         returnToGroupPage();
     }
 
     private void modify(GroupData group) {
-        selectGroupById(group.getId());
+        selectGroupById(group.withId());
         initGroupsMod();
         fillGroupForm(group);
         submitGroupMod();
+        groupCache = null;
         returnToGroupPage();
     }
 
     public void delete(GroupData group) {
-        selectGroupById(group.getId());
-        deleteSelectedGroup();
+        selectGroupById(group.withId());
+        deleteSelectedGroups();
+        groupCache = null;
         returnToGroupPage();
     }
 
@@ -79,25 +82,31 @@ public class GroupHelper extends BaseHelper {
     public boolean isThereGroup() {
         return isElementPresent(By.name("selected[]"));
     }
-    
-    public int getGroupCount() {
+
+    public int count() {
         return wd.findElements(By.name("selected[]")).size();
     }
 
     public void create(GroupData group) {
     }
 
+    private Groups groupCache = null;
+
     public Groups all() {
-        Groups groups = new Groups();
+        if (groupCache != null) {
+            return new Groups(groupCache);
+        }
+
+        groupCache = new Groups();
         List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
         for (WebElement element : elements) {
             String name = element.getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            groups.add(new GroupData().withId(id).withName(name));
+            groupCache.add(new GroupData().waitId(id).withName(name));
 
         }
-        return groups;
+        return new Groups(groupCache);
     }
-    
+
 }
 
