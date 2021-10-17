@@ -18,6 +18,7 @@ public class ContactDatas {
     private String address;
 
 
+
     public int getId() {
         return id;
     }
@@ -89,6 +90,8 @@ public class ContactDatas {
 
 
 
+
+
     public String getFirstname() {
         return firstname;
     }
@@ -122,6 +125,7 @@ public class ContactDatas {
     public String getAllEmails() {
         return allEmails; }
     public String getAddress() { return address; }
+
 
 
     @Override

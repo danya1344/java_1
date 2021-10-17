@@ -2,10 +2,7 @@ package by.egar.addressbook.appmanager;
 
 import by.egar.addressbook.model.ContactDatas;
 import by.egar.addressbook.model.Contacts;
-import by.sqa.addressbook.model.GroupData;
-import by.sqa.addressbook.model.Groups;
 import jdk.internal.access.JavaIOFileDescriptorAccess;
-import jdk.internal.access.JavaSecurityAccess;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
