@@ -27,6 +27,13 @@ public class HelpersBase {
         }
     }
 
+
+    protected void attach(By locator, String file) {
+        if (file != null) {
+                wd.findElement(locator).sendKeys(file.getAbsolutePath());
+            }
+        }
+
     public boolean isElementPresent(By locator) {
         try {
             wd.findElement(locator);

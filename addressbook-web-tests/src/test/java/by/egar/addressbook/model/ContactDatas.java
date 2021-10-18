@@ -1,6 +1,6 @@
 package by.egar.addressbook.model;
 
-import java.util.Objects;
+import java.io.File;
 
 public class ContactDatas {
     private int id = Integer.MAX_VALUE;;
@@ -16,7 +16,7 @@ public class ContactDatas {
     private String email3;
     private String allEmails;
     private String address;
-
+    private File photo;
 
 
     public int getId() {
@@ -88,6 +88,11 @@ public class ContactDatas {
         return this;
     }
 
+    public ContactDatas withPhoto(File photo) {
+        this.photo = photo;
+        return this;
+    }
+
 
 
 
@@ -125,6 +130,9 @@ public class ContactDatas {
     public String getAllEmails() {
         return allEmails; }
     public String getAddress() { return address; }
+    public File getPhoto() {
+        return photo;
+    }
 
 
 
@@ -134,19 +142,6 @@ public class ContactDatas {
                 "id='" + id + '\'' +
                 ", firstname='" + firstname + '\'' +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ContactDatas that = (ContactDatas) o;
-        return id == that.id && Objects.equals(firstname, that.firstname);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, firstname);
     }
 
 }
