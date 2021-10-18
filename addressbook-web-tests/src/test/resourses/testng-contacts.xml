@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="1" >
+    <test name="Contacts">
+        <classes>
+            <class name="by.egar.addressbook.test.ContactCreationTests"/>
+            <class name="by.egar.addressbook.test.ContactModTests"/>
+            <class name="by.egar.addressbook.test.ContactTests"/>
+            <class name="by.egar.addressbook.test.ContactPhoneTests"/>
+            <class name="by.egar.addressbook.test.ContactEmailTests"/>
+            <class name="by.egar.addressbook.test.ContactAddressTests"/>
+            <class name="by.egar.addressbook.test.ContactDeletionTests"/>
+        </classes>
+    </test>
+</suite>
