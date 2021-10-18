@@ -51,17 +51,17 @@ public class ContactDatasGeneration {
         XStream xstream = new XStream();
         xstream.processAnnotations(ContactDatas.class);
         String xml = xstream.toXML(contacts);
-        Writer writer = new FileWriter(file);
-        writer.write(xml);
-        writer.close();
+        try (Writer writer = new FileWriter(file)) {
+            writer.write(xml);
+        }
     }
 
     private void saveAsCsv(List<ContactDatas> contacts, File file) throws IOException {
-        Writer writer = new FileWriter(file);
-        for (ContactDatas contact : contacts) {
-            writer.write(String.format("%s:%s:%s:%s\n", contact.getFirstname(), contact.getLastname(), contact.getAddress()));
+        try (Writer writer = new FileWriter(file)) {
+            for (ContactDatas contact : contacts) {
+                writer.write(String.format("%s:%s:%s\n", contact.getFirstname(), contact.getLastname(), contact.getAddress()));
+            }
         }
-        writer.close();
     }
 
     public List<ContactDatas> generateContacts(int count) {
