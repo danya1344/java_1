@@ -1,9 +1,12 @@
 package by.sqa.addressbook.test;
 
 
+import by.egar.addressbook.test.ContactCreationTests;
 import by.sqa.addressbook.model.GroupData;
 import by.sqa.addressbook.model.Groups;
 import com.thoughtworks.xstream.XStream;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 

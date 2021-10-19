@@ -4,6 +4,7 @@ import by.egar.addressbook.model.ContactDatas;
 import by.egar.addressbook.model.Contacts;
 import by.sqa.addressbook.model.GroupData;
 import com.thoughtworks.xstream.XStream;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -12,6 +13,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
