@@ -2,18 +2,16 @@ package by.egar.addressbook.test;
 
 import by.egar.addressbook.model.ContactDatas;
 import by.egar.addressbook.model.Contacts;
-import by.sqa.addressbook.model.GroupData;
 import com.thoughtworks.xstream.XStream;
-import org.slf4j.LoggerFactory;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-
-import java.io.*;
-import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -40,14 +38,16 @@ public class ContactCreationTests extends TestsBase {
     @Test(dataProvider = "validContacts")
     public void testContactCreation(ContactDatas contact) {
         File photo = new File("src/test/resourses/pngwing.png");
-        ContactDatas contact = new ContactDatas().withPhoto(photo);
-        app.getGoTo().add_NewPage();
-        Contacts before = app.contact().all();
-        app.contact().create(contact);
-        assertThat(app.contact().count(), equalTo(before.size() + 1));
-        Contacts after = app.contact().all();
-        assertThat(after, equalTo(
-                before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
+        ContactDatas contacts = new ContactDatas().withPhoto(photo);
+        if (app.db().contacts().size() == 0) {
+            app.getGoTo().add_NewPage();
+            Contacts before = app.db().contacts();
+            app.contact().create(contact);
+            assertThat(app.contact().count(), equalTo(before.size() + 1));
+            Contacts after = app.db().contacts();
+            assertThat(after, equalTo(
+                    before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
+        }
     }
 
     @Test

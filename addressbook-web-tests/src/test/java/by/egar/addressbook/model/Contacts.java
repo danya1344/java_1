@@ -2,6 +2,7 @@ package by.egar.addressbook.model;
 
 import com.google.common.collect.ForwardingSet;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,6 +16,10 @@ public class Contacts extends ForwardingSet<ContactDatas> {
 
     public Contacts() {
         this.delegate = new HashSet<ContactDatas>();
+    }
+
+    public Contacts(Collection<ContactDatas> contacts) {
+        this.delegate = new HashSet<ContactDatas>(contacts);
     }
 
     @Override

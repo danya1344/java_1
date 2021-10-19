@@ -1,12 +1,9 @@
 package by.sqa.addressbook.test;
 
 
-import by.egar.addressbook.test.ContactCreationTests;
 import by.sqa.addressbook.model.GroupData;
 import by.sqa.addressbook.model.Groups;
 import com.thoughtworks.xstream.XStream;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -38,13 +35,15 @@ public class GroupCreationTests extends TestBase {
 
     @Test(dataProvider = "validGroups")
     public void testGroupCreation(GroupData group) {
-        app.goTo().groupPage();
-        Groups before = app.group().all();
-        app.group().create(group);
-        assertThat(app.group().count(), equalTo(before.size() + 1));
-        Groups after = app.group().all();
-        assertThat(after, equalTo(
-                before.withAdded(group.withId(after.stream().mapToInt((c) -> c.withId()).max().getAsInt()))));
+        if (app.db().groups().size() == 0) {
+            app.goTo().groupPage();
+            Groups before = app.db().groups();
+            app.group().create(group);
+            assertThat(app.group().count(), equalTo(before.size() + 1));
+            Groups after = app.db().groups();
+            assertThat(after, equalTo(
+                    before.withAdded(group.withId(after.stream().mapToInt((c) -> c.withId()).max().getAsInt()))));
+        }
     }
 
     @Test

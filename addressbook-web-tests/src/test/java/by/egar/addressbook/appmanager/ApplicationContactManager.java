@@ -19,6 +19,7 @@ public class ApplicationContactManager {
     private ContactHelpers contactHelpers;
     private SessionHelpers sessionHelpers;
     private String browser;
+    private DbHelpers dbHelpers;
 
     public ApplicationContactManager(String browser) {
         this.browser = browser;
@@ -30,6 +31,8 @@ public class ApplicationContactManager {
         properties.load(new FileReader(new File(String.format("src/test/resourses/%s.properties", target))));
         System.setProperty("webdriver.gecko.driver", "C:\\WebDrivers\\geckodriver.exe");
         System.setProperty("webdriver.chrome.driver", "C:\\WebDrivers\\chromedriver.exe");
+
+        dbHelpers = new DbHelpers();
 
         if (browser.equals(BrowserType.FIREFOX)) {
             wd = new FirefoxDriver();
@@ -43,6 +46,7 @@ public class ApplicationContactManager {
         goTo = new NavigationHelpers(wd);
         sessionHelpers = new SessionHelpers(wd);
         sessionHelpers.login(properties.getProperty("web.adminLogin"), properties.getProperty("web.adminPassword"));
+
     }
 
     public void stop() {
@@ -55,5 +59,9 @@ public class ApplicationContactManager {
 
     public NavigationHelpers getGoTo() {
         return goTo;
+    }
+
+    public DbHelpers db() {
+        return dbHelpers;
     }
 }

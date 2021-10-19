@@ -1,5 +1,6 @@
 package by.sqa.addressbook.appmanager;
 
+import by.egar.addressbook.appmanager.DbHelpers;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -18,6 +19,8 @@ public class ApplicationManager {
     private NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
     private String browser;
+    private DbHelper dbHelper;
+    private SessionHelper sessionHelpers;
 
     public ApplicationManager(String browser) {
         this.browser = browser;
@@ -29,6 +32,8 @@ public class ApplicationManager {
         properties.load(new FileReader(new File(String.format("src/test/resourses/%s.properties", target))));
         System.setProperty("webdriver.gecko.driver", "C:\\WebDrivers\\geckodriver.exe");
         System.setProperty("webdriver.chrome.driver", "C:\\WebDrivers\\chromedriver.exe");
+
+        dbHelper = new DbHelper();
 
         if (browser.equals(BrowserType.FIREFOX)) {
             wd = new FirefoxDriver();
@@ -54,5 +59,9 @@ public class ApplicationManager {
 
     public NavigationHelper goTo() {
         return navigationHelper;
+    }
+
+    public DbHelper db() {
+        return dbHelper;
     }
 }
