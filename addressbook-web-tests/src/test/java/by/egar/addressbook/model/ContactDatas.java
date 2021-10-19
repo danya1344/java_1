@@ -12,6 +12,8 @@ import java.util.Objects;
 @Entity
 @Table(name = "addressbook")
 public class ContactDatas {
+    public int getId;
+    public String getFirstname;
     @XStreamOmitField
 
     @Id
