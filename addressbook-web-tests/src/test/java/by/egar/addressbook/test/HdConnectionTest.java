@@ -34,10 +34,12 @@ public class HdConnectionTest {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         List<ContactDatas> result = session.createQuery("from ContactDatas where deprecated = '0000-00-00' ").list();
-        for (ContactDatas contact : result) {
-            System.out.println(contact);
-        }
         session.getTransaction().commit();
         session.close();
+
+        for (ContactDatas contact : result) {
+            System.out.println(contact);
+            System.out.println(contact.getGroups());
+        }
     }
 }

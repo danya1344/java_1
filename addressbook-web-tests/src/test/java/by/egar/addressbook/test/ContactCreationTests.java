@@ -38,7 +38,7 @@ public class ContactCreationTests extends TestsBase {
     @Test(dataProvider = "validContacts")
     public void testContactCreation(ContactDatas contact) {
         File photo = new File("src/test/resourses/pngwing.png");
-        ContactDatas contacts = new ContactDatas().withPhoto(photo);
+        ContactDatas contact = new ContactDatas().withPhoto(photo);
         if (app.db().contacts().size() == 0) {
             app.getGoTo().add_NewPage();
             Contacts before = app.db().contacts();

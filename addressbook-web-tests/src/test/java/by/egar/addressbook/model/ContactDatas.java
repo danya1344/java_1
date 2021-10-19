@@ -1,21 +1,23 @@
 package by.egar.addressbook.model;
 
+import by.sqa.addressbook.model.GroupData;
+import by.sqa.addressbook.model.Groups;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @XStreamAlias("contact")
 @Entity
 @Table(name = "addressbook")
 public class ContactDatas {
-    public int getId;
-    public String getFirstname;
-    @XStreamOmitField
 
+    @XStreamOmitField
     @Id
     @Column(name = "id")
     private int id = Integer.MAX_VALUE;
@@ -25,9 +27,6 @@ public class ContactDatas {
 
     @Column(name = "lastname")
     private String lastname;
-
-    @Transient
-    private String group;
 
     @Column(name = "home")
     @Type(type = "text")
@@ -67,6 +66,12 @@ public class ContactDatas {
     @Type(type = "text")
     private String photo;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "address_in_groups",
+            joinColumns = @JoinColumn(name = "id"),
+            inverseJoinColumns = @JoinColumn(name = "group_id"))
+    private Set<GroupData> groups = new HashSet<GroupData>();
+
 
     public int getId() {
         return id;
@@ -84,11 +89,6 @@ public class ContactDatas {
 
     public ContactDatas withLastname(String lastname) {
         this.lastname = lastname;
-        return this;
-    }
-
-    public ContactDatas withGroup(String group) {
-        this.group = group;
         return this;
     }
 
@@ -142,43 +142,55 @@ public class ContactDatas {
         return this;
     }
 
-
-
+    public Groups getGroups() {
+        return new Groups(groups);
+    }
 
 
     public String getFirstname() {
         return firstname;
     }
+
     public String getLastname() {
         return lastname;
     }
-    public String getGroup() {
-        return group;
-    }
+
     public String getHomePhone() {
         return home;
     }
+
     public String getMobilePhone() {
         return mobile;
     }
+
     public String getWorkPhone() {
         return work;
     }
+
     public String getAllPhones() {
         return allPhones;
     }
+
     public String getEmail() {
         return email;
     }
+
     public String getEmail2() {
         return email2;
     }
+
     public String getEmail3() {
         return email3;
     }
+
     public String getAllEmails() {
-        return allEmails; }
-    public String getAddress() { return address; }
+        return allEmails;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
     public File getPhoto() {
         return new File(photo);
     }
