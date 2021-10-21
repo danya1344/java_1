@@ -5,38 +5,13 @@ repositories {
     mavenCentral()
 }
 
-task testContacts(type: Test) {
-    useTestNG {
-        suites 'src/test/resureses/testng-contacts.xml'
-    }
-    if (project.hasProperty("browser")) {
-        systemProperty "browser", "${browser}"
-    }
-    if (project.hasProperty("target")) {
-        systemProperty "target", "${browser}"
-    }
-    if (project.hasProperty("verifyUI")) {
-        systemProperty "verifyUI", "${verifyUI}"
-    }
+configurations {
+    agent
 }
 
-task testGroups(type: Test) {
-   useTestNG {
-       suites 'src/test/resureses/testng-groups.xml'
-   }
-    if (project.hasProperty("browser")) {
-        systemProperty "browser", "${browser}"
-    }
-    if (project.hasProperty("target")) {
-        systemProperty "target", "${browser}"
-    }
-    if (project.hasProperty("verifyUI")) {
-        systemProperty "verifyUI", "${verifyUI}"
-    }
-}
 
 dependencies {
-implementation 'org.jetbrains:annotations:20.1.0'
+    implementation 'org.jetbrains:annotations:20.1.0'
     testImplementation group: 'org.testng', name: 'testng', version: '6.14.3'
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
     testImplementation group: 'org.hamcrest', name: 'java-hamcrest', version: '2.0.0.0'
@@ -45,6 +20,46 @@ implementation 'org.jetbrains:annotations:20.1.0'
     testImplementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
     implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.16'
     implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.4.10.Final'
+
 }
+
+
+task testContacts(type: Test) {
+    useTestNG {
+        suites 'src/test/resureses/testng-contacts.xml'
+    }
+    if (project.hasProperty("browser")) {
+        systemProperty "browser", "${browser}"
+    }
+    if (project.hasProperty("platform")) {
+        systemProperty "platform", "${browser}"
+    }
+    if (project.hasProperty("target")) {
+        systemProperty "target", "${browser}"
+    }
+    if (project.hasProperty("verifyUI")) {
+        systemProperty "verifyUI", "${verifyUI}"
+    }
+}
+
+
+task testGroups(type: Test) {
+    useTestNG {
+        suites 'src/test/resureses/testng-groups.xml'
+    }
+    if (project.hasProperty("browser")) {
+        systemProperty "browser", "${browser}"
+    }
+    if (project.hasProperty("platform")) {
+        systemProperty "platform", "${browser}"
+    }
+    if (project.hasProperty("target")) {
+        systemProperty "target", "${browser}"
+    }
+    if (project.hasProperty("verifyUI")) {
+        systemProperty "verifyUI", "${verifyUI}"
+    }
+}
+
 sourceCompatibility = JavaVersion.VERSION_16
 targetCompatibility = JavaVersion.VERSION_16
